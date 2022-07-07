@@ -1,6 +1,6 @@
 # List of Variables for VPC setup
 
-vpc_name: "Vprofile-vpc"
+vpc_name: "MY-VPC"
 
 # VPC Range
 vpcCidr: '172.20.0.0/16'
