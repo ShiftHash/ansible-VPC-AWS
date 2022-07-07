@@ -120,3 +120,29 @@
             gateway_id: "{{IGW_out.gateway_id}}"
       resgister: PubRT_out
 
+  # SET UP NAT GATEWAY AND ALLOCATE NEW EIP, IF NOT EXISTS. ALSO, SET UP PRIVATE ROUTE TABLE
+    - name: NAT gateway setup
+      ec2_vpc_nat_gateway:
+        state: "{{state}}"
+        subnet_id: "{{pubsub1_out.subnet.id}}"    # Creating only one NATGW for practice, or list all 3
+        wait: yes
+        if_exist_do_not_create: true
+        resource_tags:
+          Name: MY-NATGW
+      register: NATGW_out
+
+    - name: setup public subnet route tables
+      ec2_vpc_route_table:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{region}}"
+        tags:
+          Name: MY-PrivRT
+        subnets:
+          - "{{privsub1_out.subnet.id}}"
+          - "{{privsub2_out.subnet.id}}"
+          - "{{privsub3_out.subnet.id}}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{NATGW_out.gateway_id}}"
+      resgister: PrivRT_out
+
