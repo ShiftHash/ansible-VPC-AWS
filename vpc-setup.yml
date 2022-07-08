@@ -144,5 +144,5 @@
         routes:
           - dest: 0.0.0.0/0
             gateway_id: "{{NATGW_out.gateway_id}}"
-      resgister: PrivRT_out
+      register: PrivRT_out
 
