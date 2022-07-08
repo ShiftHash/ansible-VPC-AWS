@@ -4,7 +4,7 @@
   tasks:
   # IMPORTING VARIABLES
     - name: Import VPC variables
-      include_vars: /vars/vpc_setup
+      include_vars: ansible-VPC-AWS/vars/vpc_setup
 
       # SET UP VPC
     - name: Create VPC
