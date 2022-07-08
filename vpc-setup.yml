@@ -118,7 +118,7 @@
         routes:
           - dest: 0.0.0.0/0
             gateway_id: "{{IGW_out.gateway_id}}"
-      resgister: PubRT_out
+      register: PubRT_out
 
   # SET UP NAT GATEWAY AND ALLOCATE NEW EIP, IF NOT EXISTS. ALSO, SET UP PRIVATE ROUTE TABLE
     - name: NAT gateway setup
