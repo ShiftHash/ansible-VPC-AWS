@@ -6,7 +6,7 @@
     - name: Import VPC variables
       include_vars: /vars/vpc_setup
 
-  # CREATING VPC
+      # SET UP VPC
     - name: Create VPC
       ec2_vpc_net:
         name: "{{vpc_name}}"
