@@ -2,6 +2,15 @@
   connection: local
   gather_facts: False
   tasks:
+
+    - name: Installing boto & boto3 on local system
+      pip:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - boto
+        - boto3
+
   # IMPORTING VARIABLES
     - name: Import VPC variables
       include_vars: /vars/vpc_setup
