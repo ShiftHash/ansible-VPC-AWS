@@ -13,7 +13,7 @@
 
   # IMPORTING VARIABLES
     - name: Import VPC variables
-      include_vars: vars/vpc_test_var
+      include_vars: vars/vpc_setup
 
       # SET UP VPC
     - name: Create VPC
