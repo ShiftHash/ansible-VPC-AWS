@@ -24,5 +24,5 @@
         dns_support: yes
         dns_hostname: yes
         tenancy: default
-        state: "{{state}}"
+        state: present
       register: vpcout
